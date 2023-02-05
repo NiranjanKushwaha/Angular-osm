@@ -7,13 +7,18 @@ import * as L from 'leaflet';
 })
 export class Test2Component {
   private map: L.Map;
-  lat = 12.9716;
-  lon = 77.5946;
+  // lat = 12.9716;
+  // lon = 77.5946;
+  // if no co-ordinate is provided then showed a default message and action on that
+  lat = null;
+  lon = null;
   private centroid: L.LatLngExpression;
 
-  setCentroid(lat: number, lon: number): void {
+  setCentroid(lat: any, lon: any): void {
     if (lat && lon) {
       this.centroid = [lat, lon];
+    } else {
+      this.centroid = [0, 0];
     }
   }
   private initMap(): void {
@@ -36,9 +41,17 @@ export class Test2Component {
       draggable: true,
     })
       .addTo(this.map)
-      .bindPopup('Lat ' + this.lat + '<br />Lon ' + this.lon)
+      .bindPopup(this.getMarkerContent())
       .openPopup();
     tiles.addTo(this.map);
+  }
+
+  getMarkerContent() {
+    if (this.lat && this.lon) {
+      return `Lat  + ${this.lat} + '<br />Lon ' + ${this.lon}`;
+    } else {
+      return `<a href="https://google.com">Configure address</a>`;
+    }
   }
 
   ngOnInit(): void {
