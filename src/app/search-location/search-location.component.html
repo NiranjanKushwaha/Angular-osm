@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <div style="font-weight: 700">Search Location</div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control address_search"
+          placeholder="Search corporate"
+          name="corporate_Search"
+          [ngbTypeahead]="searchCorporate"
+          (selectItem)="onSelectCorporate($event)"
+          [editable]="false"
+          #searchInp
+        />
+        <span
+          style="
+            font-size: 1.8rem;
+            float: right;
+            padding-top: -1.7rem;
+            margin: -2.3rem 0rem 0 0;
+            color: rgba(0, 0, 0, 0.54);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: silver;
+            height: 2.25rem;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+          "
+          (click)="clearSearchCorporate()"
+        >
+          &times;
+        </span>
+        <span *ngIf="isCorporateSearchLoading">Loading...</span>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="map-container">
+        <div class="map-frame">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
