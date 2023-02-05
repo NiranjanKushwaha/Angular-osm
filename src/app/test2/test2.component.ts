@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import * as L from 'leaflet';
 @Component({
-  selector: 'app-test2',
+  selector: 'show-coordinate',
   templateUrl: './test2.component.html',
   styleUrls: ['./test2.component.css'],
 })
-export class Test2Component {
+export class ShowPositionOnMapComponent {
   private map: L.Map;
-  // lat = 12.9716;
-  // lon = 77.5946;
+  lat = 12.9716;
+  lon = 77.5946;
   // if no co-ordinate is provided then showed a default message and action on that
-  lat = null;
-  lon = null;
+  // lat = null;
+  // lon = null;
   private centroid: L.LatLngExpression;
 
   setCentroid(lat: any, lon: any): void {
@@ -48,7 +48,7 @@ export class Test2Component {
 
   getMarkerContent() {
     if (this.lat && this.lon) {
-      return `Lat  + ${this.lat} + '<br />Lon ' + ${this.lon}`;
+      return `Lat  ${this.lat} <br /> Lon  ${this.lon}`;
     } else {
       return `<a href="https://google.com">Configure address</a>`;
     }
