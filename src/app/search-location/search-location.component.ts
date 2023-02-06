@@ -148,7 +148,7 @@ export class SearchLocationComponent {
     this.map.setView([this.lat, this.lon], 18);
     this.marker.setLatLng([this.lat, this.lon]);
     this.marker
-      .bindPopup('Niranjan"s Lat ' + this.lat + '<br />Lon ' + this.lon)
+      .bindPopup('Niranjan"s Latitude ' + this.lat + '<br />Lon ' + this.lon)
       .openPopup();
   }
 }

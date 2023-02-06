@@ -16,3 +16,7 @@
   width: 19.8rem;
   background-color: rgb(243, 229, 229);
 }
+
+::ng-deep .dropdown-menu .dropdown-item {
+  color: red;
+}
