@@ -76,6 +76,13 @@ export class SearchLocationComponent {
       .bindPopup(this.getMarkerContent())
       .openPopup();
     tiles.addTo(this.map);
+
+    // code for adding circle
+    // var circle = L.circle([this.lat, this.lon], 2000, {
+    //   color: 'red',
+    //   fillColor: '#f03',
+    //   fillOpacity: 0.5,
+    // }).addTo(this.map);
   }
 
   getMarkerContent() {
