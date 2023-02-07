@@ -14,9 +14,38 @@
 
 ::ng-deep .dropdown-menu {
   width: 19.8rem;
-  background-color: rgb(243, 229, 229);
+  background-color: #ddd;
+  overflow: hidden !important;
 }
 
 ::ng-deep .dropdown-menu .dropdown-item {
-  color: red;
+  color: #000;
+}
+::ng-deep .dropdown-menu .dropdown-item:hover {
+  color: #fff;
+}
+
+::ng-deep .dropdown-menu .dropdown-item ngb-highlight {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.clear-search {
+  font-size: 23px;
+  cursor: pointer;
+  background-color: silver;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 34px;
+  height: 100%;
+  text-align: center;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.clear-search:hover {
+  color: #0f199e;
 }

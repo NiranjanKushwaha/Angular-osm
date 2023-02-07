@@ -26,6 +26,8 @@ export class ShowPositionOnMapComponent {
     this.map = L.map('map', {
       center: this.centroid,
       zoom: 12,
+      // dragging: false,
+      // scrollWheelZoom: true,
     });
 
     const tiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
