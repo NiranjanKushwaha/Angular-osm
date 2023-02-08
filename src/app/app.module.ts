@@ -6,9 +6,11 @@ import { StreetMapCompComponent } from './street-map-comp/street-map-comp.compon
 import { HttpClientModule } from '@angular/common/http';
 import { ShowPositionOnMapComponent } from './test2/test2.component';
 import { SearchLocationComponent } from './search-location/search-location.component';
-import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+// import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +22,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AutocompleteLibModule,
+    // AutocompleteLibModule,
     FormsModule,
     NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  // comment the below code lines if u don't want web component
+  constructor(private injector: Injector) {
+    const el = createCustomElement(SearchLocationComponent, { injector });
+    customElements.define('search-loacation', el);
+  }
+  ngDoBootstrap() {}
+}
